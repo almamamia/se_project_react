@@ -69,7 +69,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
 
-
 # WTWR (What to Wear?)
 
 ## About the project
@@ -79,3 +78,4 @@ The idea of the application is pretty simple - we make a call to an API, which t
 ## Links
 
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
+- [Deployed pg link](https://almamamia.github.io/se_project_react/)

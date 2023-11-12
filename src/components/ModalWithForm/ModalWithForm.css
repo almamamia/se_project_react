@@ -1,0 +1,92 @@
+.modal__content {
+  background-color: rgba(255, 255, 255, 1);
+  max-width: 496px;
+  width: 100%;
+  height: 436px;
+
+  border-radius: 20px;
+  padding: 28px;
+
+  position: relative;
+}
+
+.modal__header {
+  position: relative;
+}
+
+.modal__close-button {
+  border-style: none;
+  background-color: transparent;
+  width: 14px;
+  height: 14px;
+}
+
+.modal__input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 24px;
+  margin: 0;
+}
+
+.modal__input-text {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__form-title {
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+.modal__form-option {
+  display: flex;
+}
+
+.modal__input_form_radio {
+  height: 16px;
+  width: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  padding-bottom: 10px;
+}
+
+.modal__input_form_value {
+  padding-left: 8px;
+  padding-bottom: 10px;
+}
+
+.modal__form-option:last-child {
+  padding: 0;
+}
+
+.modal__submit-btn {
+  margin-top: 32px;
+  width: 124px;
+  height: 36px;
+  color: #fff;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.1;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+
+  border: 1px;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal__submit-button:hover {
+  opacity: 0.6;
+}
+.modal__submit-button:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+}

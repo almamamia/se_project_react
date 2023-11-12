@@ -1,0 +1,20 @@
+.weather {
+  position: relative;
+}
+
+.weather_info {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+
+  color: #fff;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.weather_img {
+  width: 100%;
+}

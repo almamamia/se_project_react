@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
+
+.main {
+  padding: 0 40px;
+  font-family: "Cabinet Grotesk";
+}
+
+.main__text {
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  margin-top: 40px;
+}
+
+.card_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 34px;
+}
