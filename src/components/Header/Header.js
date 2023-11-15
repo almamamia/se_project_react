@@ -1,4 +1,6 @@
 import "./Header.css";
+import WTWRlogo from "../../images/Logo.svg";
+import avatar from "../../images/avatar.svg";
 
 const Header = ({ onClick, currentLocation }) => {
   const currentDate = new Date().toLocaleDateString("default", {
@@ -8,9 +10,9 @@ const Header = ({ onClick, currentLocation }) => {
 
   return (
     <header className="header">
-      <div className="header__logo">
+      <div>
         <div>
-          <img src={require("../../images/Logo.svg").default} alt="logo" />
+          <img src={WTWRlogo} alt="logo" className="header__logo" />
         </div>
         <div className="header__date">
           {currentDate}, {currentLocation}
@@ -23,11 +25,7 @@ const Header = ({ onClick, currentLocation }) => {
         </button>
         <div>Terrence Tegegne</div>
         <div>
-          <img
-            src={require("../../images/avatar.svg").default}
-            alt="Avatar logo"
-            className="header__avatar"
-          />
+          <img src={avatar} alt="Avatar logo" className="header__avatar" />
         </div>
       </div>
     </header>

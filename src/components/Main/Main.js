@@ -29,7 +29,13 @@ function Main({ weatherTemp, onSelectCard }) {
         </div>
         <div className="card_section">
           {filteredCards.map((item) => {
-            return <ItemCard item={item} onSelectCard={onSelectCard} />;
+            return (
+              <ItemCard
+                item={item}
+                onSelectCard={onSelectCard}
+                key={item._id}
+              />
+            );
           })}
         </div>
       </section>
