@@ -73,39 +73,45 @@ function App() {
               />
             </label>
 
-            <label className="modal__label modal__label-radio">
+            <p className="modal__label modal__label-radio">
               Select the weather type:
-            </label>
+            </p>
             <div className="modal__form-children">
               <div className="modal__form-option">
-                <input
-                  type="radio"
-                  name="radAnswer"
-                  id="hot"
-                  value="hot"
-                  className="modal__input_form_radio"
-                />
-                <label className="modal__input_form_value">Hot</label>
+                <label className="modal__input_form_value">
+                  <input
+                    type="radio"
+                    name="radAnswer"
+                    id="hot"
+                    value="hot"
+                    className="modal__input_form_radio"
+                  />
+                  Hot
+                </label>
               </div>
               <div className="modal__form-option">
-                <input
-                  type="radio"
-                  name="radAnswer"
-                  id="Warm"
-                  value="Warm"
-                  className="modal__input_form_radio"
-                />
-                <label className="modal__input_form_value">Warm</label>
+                <label className="modal__input_form_value">
+                  <input
+                    type="radio"
+                    name="radAnswer"
+                    id="Warm"
+                    value="Warm"
+                    className="modal__input_form_radio"
+                  />
+                  Warm
+                </label>
               </div>
               <div className="modal__form-option">
-                <input
-                  type="radio"
-                  name="radAnswer"
-                  id="Cold"
-                  value="Cold"
-                  className="modal__input_form_radio"
-                />
-                <label className="modal__input_form_value">Cold</label>
+                <label className="modal__input_form_value">
+                  <input
+                    type="radio"
+                    name="radAnswer"
+                    id="Cold"
+                    value="Cold"
+                    className="modal__input_form_radio"
+                  />
+                  Cold
+                </label>
               </div>
             </div>
           </div>
