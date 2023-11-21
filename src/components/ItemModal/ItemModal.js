@@ -1,12 +1,12 @@
 import "./ItemModal.css";
-import closeButton from "../../images/modal_close_button_alpha.svg";
+import closeButtonAlpha from "../../images/modal_close_button_alpha.svg";
 
 const ItemModal = ({ selectedCard, onClose }) => {
   return (
     <div className={`modal`}>
       <div className="modal__preview-content">
         <button className="modal__close-button" type="button" onClick={onClose}>
-          <img src={closeButton} alt="modal_close_button" />
+          <img src={closeButtonAlpha} alt="modal_close_button" />
         </button>
         <img
           className="modal__item-img"
