@@ -7,6 +7,8 @@ const ModalWithForm = ({
   title,
   onClose,
   name,
+  isOpen,
+  onSubmit,
 }) => {
   return (
     <div className={`modal modal_type_${name}`}>
@@ -16,12 +18,7 @@ const ModalWithForm = ({
           <img src={closeButton} alt="modal_close_button" />
         </button>
 
-        <form
-          className="modal__form"
-          onSubmit={(evt) => {
-            evt.preventDefault();
-          }}
-        >
+        <form className="modal__form" onSubmit={onSubmit}>
           {children}
           <button type="submit" className="modal__submit-btn">
             {buttonText}

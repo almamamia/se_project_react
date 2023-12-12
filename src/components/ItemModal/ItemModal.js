@@ -1,7 +1,7 @@
 import "./ItemModal.css";
 import closeButtonAlpha from "../../images/modal_close_button_alpha.svg";
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onClose, handleDeleteBtn }) => {
   return (
     <div className={`modal`}>
       <div className="modal__preview-content">
@@ -13,9 +13,24 @@ const ItemModal = ({ selectedCard, onClose }) => {
           src={selectedCard.link}
           alt={selectedCard.name}
         />
-        <h3 className="modal__item modal__item-name">{selectedCard.name}</h3>
-        <div className="modal__item modal__item-weather-type">
-          Wather type: {selectedCard.weather}
+        <div className="modal__item-info">
+          <div className="modal__item">
+            <h3 className="modal__item modal__item-name">
+              {selectedCard.name}
+            </h3>
+            <div className="modal__item modal__item-weather-type">
+              Wather type: {selectedCard.weather}
+            </div>
+          </div>
+          <div>
+            <button
+              className="modal__item-Delete"
+              type="button"
+              onClick={handleDeleteBtn}
+            >
+              Delete Item
+            </button>
+          </div>
         </div>
       </div>
     </div>

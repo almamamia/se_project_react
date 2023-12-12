@@ -17,14 +17,19 @@ export const getForecastWeather = () => {
 };
 
 export const parseWeatherData = (data) => {
-  const main = data.main;
-  const temp = main && main.temp;
-
-  return Math.ceil(temp);
+  const weather = {
+    temperature: {
+      F: Math.round(data.main.temp),
+      C: Math.round(((data.main.temp - 32) * 5) / 9),
+    },
+  };
+  return weather;
 };
 
 export const parseLocationData = (data) => {
-  console.log(data.name);
   const currentLocation = data.name;
   return currentLocation;
 };
+
+// weather.temperature.F = `${Math.round(data.main.temp)}°F`;
+// weather.temperature.C = `${Math.round(((data.main.temp - 32) * 5) / 9)}°C`;

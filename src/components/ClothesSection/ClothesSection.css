@@ -1,0 +1,25 @@
+.clothes__section {
+  display: flex;
+  flex-direction: column;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.clothes__section-bar {
+  display: flex;
+}
+
+.clothes__section-text {
+  padding-right: 20px;
+}
+
+.clothes__section-btn {
+  border: none;
+  appearance: none;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.6);
+}
