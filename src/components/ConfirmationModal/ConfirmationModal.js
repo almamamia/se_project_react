@@ -7,6 +7,7 @@ const ConfirmationModal = ({
   onDeleteItem,
   buttonText,
 }) => {
+  console.log(selectedCard);
   const handleDeleteItemSubmit = () => {
     onDeleteItem(selectedCard._id);
   };

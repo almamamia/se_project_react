@@ -10,7 +10,7 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteBtn }) => {
         </button>
         <img
           className="modal__item-img"
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt={selectedCard.name}
         />
         <div className="modal__item-info">
@@ -19,7 +19,7 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteBtn }) => {
               {selectedCard.name}
             </h3>
             <div className="modal__item modal__item-weather-type">
-              Wather type: {selectedCard.weather}
+              Weather type: {selectedCard.weather}
             </div>
           </div>
           <div>

@@ -14,27 +14,25 @@ export const getClothingItems = () => {
   }).then(checkServerResponse);
 };
 
-// export const addNewClothingItem = (item) => {
-//   return fetch(`${baseUrl}/items`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       authorization: `Bearer ${item.token}`,
-//     },
-//     body: JSON.stringify({
-//       name: item.name,
-//       weather: item.weather,
-//       imageUrl: item.imageUrl,
-//     }),
-//   }).then(checkServerResponse);
-// };
+export const addNewClothingItem = (item) => {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: item.name,
+      imageUrl: item.imageUrl,
+      weather: item.weather,
+    }),
+  }).then(checkServerResponse);
+};
 
-// export const deleteClothingItems = (id, token) => {
-//   return fetch(`${baseUrl}/items/${id}`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//       authorization: `Bearer ${token}`,
-//     },
-//   }).then(checkServerResponse);
-// };
+export const deleteClothingItem = (id) => {
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(checkServerResponse);
+};

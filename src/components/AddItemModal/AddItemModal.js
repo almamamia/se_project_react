@@ -8,13 +8,13 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
     setName(e.target.value);
   };
 
-  const [url, setUrl] = useState("");
+  const [imageUrl, setUrl] = useState("");
   const handleUrlChange = (e) => {
     console.log(e.target.value);
     setUrl(e.target.value);
   };
 
-  const [weatherType, setWeatherType] = useState("");
+  const [weather, setWeatherType] = useState("");
   const handleWeatherTypeChange = (e) => {
     setWeatherType(e.target.value);
   };
@@ -30,7 +30,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleCloseModal();
-    onAddItem({ name, url, weatherType });
+    onAddItem({ name, imageUrl, weather });
   };
 
   return (
@@ -63,9 +63,9 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             placeholder="Image URL"
             required
             minLength={1}
-            maxLength={30}
+            maxLength={300}
             className="modal__input-text modal__input_card-url"
-            value={url}
+            value={imageUrl}
             onChange={handleUrlChange}
           />
         </label>

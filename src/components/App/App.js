@@ -62,7 +62,7 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const [clothingItems, setClothingItems] = useState("");
+  const [clothingItems, setClothingItems] = useState([]);
 
   useEffect(() => {
     getClothingItems()
@@ -74,13 +74,32 @@ function App() {
       });
   }, []);
 
-  const handleItemAddSubmit = (values) => {
-    const item = {
-      names: values.name,
-      url: values.url,
-      weather: values.weatherType,
-    };
-    setClothingItems([item, ...clothingItems]);
+  const handleItemAddSubmit = ({ name, imageUrl, weather }) => {
+    addNewClothingItem({ name, imageUrl, weather })
+      .then((item) => {
+        setClothingItems([item, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleDeleteSubmit = (selectedCard) => {
+    console.log(deleteClothingItem);
+    deleteClothingItem(selectedCard._id)
+      .then(() => {
+        const newItemList = clothingItems.filter((item) => {
+          return item._ !== selectedCard;
+        });
+        console.log(newItemList);
+
+        setClothingItems(newItemList);
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.log("Error deleting item:", error);
+      });
   };
 
   const [currentUser, setCurrentUser] = useState("");
@@ -128,7 +147,7 @@ function App() {
               onClose={handleCloseModal}
               selectedCard={selectedCard}
               buttonText={"Yes, delete item"}
-              //onDeleteItem={handleDeleteSubmit}
+              onDeleteItem={handleDeleteSubmit}
             />
           )}
         </CurrentUserContext.Provider>
