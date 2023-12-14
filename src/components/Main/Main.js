@@ -17,7 +17,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
       return "cold";
     }
   }, [weatherTemp]);
-
+  debugger;
   console.log(clothingItems);
 
   const filteredCards = clothingItems.filter((item) => {
@@ -33,7 +33,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
           Today is {currentTemp}°{currentTemperatureUnit}. You may want to wear:
         </div>
         <div className="card_section">
-          {filteredCards.map((item) => {
+          {/* {filteredCards.map((item) => {
             return (
               <ItemCard
                 item={item}
@@ -41,7 +41,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
                 key={item._id}
               />
             );
-          })}
+          })} */}
         </div>
       </section>
     </main>

@@ -20,7 +20,6 @@ import {
 } from "../../utils/weatherAPI";
 import {
   getClothingItems,
-  parseClothingItemData,
   addNewClothingItem,
   deleteClothingItem,
 } from "../../utils/api";
@@ -49,7 +48,6 @@ function App() {
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
-        console.log(data);
         const temperature = parseWeatherData(data);
         const location = parseLocationData(data);
         setTemp(temperature);
@@ -66,6 +64,16 @@ function App() {
 
   const [clothingItems, setClothingItems] = useState("");
 
+  useEffect(() => {
+    getClothingItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const handleItemAddSubmit = (values) => {
     const item = {
       names: values.name,
@@ -74,19 +82,6 @@ function App() {
     };
     setClothingItems([item, ...clothingItems]);
   };
-
-  useEffect(() => {
-    getClothingItems()
-      .then((data) => {
-        console.log(data);
-        const items = parseClothingItemData(data);
-        console.log(items);
-        setClothingItems(items);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   const [currentUser, setCurrentUser] = useState("");
 
