@@ -19,7 +19,7 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteBtn }) => {
               {selectedCard.name}
             </h3>
             <div className="modal__item modal__item-weather-type">
-              Weather type: {selectedCard.weather}
+              Weather type: {selectedCard.weather.toLowerCase()}
             </div>
           </div>
           <div>

@@ -7,7 +7,8 @@ const ClothesSection = (clothingItems, onSelectCard) => {
   // const userItems = clothingItems.filter((item) => {
   //   return item.owner === CurrentUserContext._id;
   // });
-
+  // console.log(clothingItems);
+  // console.log(onSelectCard);
   return (
     <section className="clothes__section">
       <div className="clothes__section-bar">
@@ -18,7 +19,7 @@ const ClothesSection = (clothingItems, onSelectCard) => {
       </div>
 
       <div className="clothes__section-cards">
-        {/* {userItems.map((item) => {
+        {/* {clothingItems.map((item) => {
           return (
             <ItemCard item={item} onSelectCard={onSelectCard} key={item._id} />
           );

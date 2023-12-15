@@ -7,9 +7,9 @@ const ConfirmationModal = ({
   onDeleteItem,
   buttonText,
 }) => {
-  console.log(selectedCard);
-  const handleDeleteItemSubmit = () => {
-    onDeleteItem(selectedCard._id);
+  const handleDeleteItem = () => {
+    console.log(selectedCard._id);
+    onDeleteItem(selectedCard);
   };
   return (
     <div className={`modal`}>
@@ -26,7 +26,7 @@ const ConfirmationModal = ({
         <button
           className="modal__confirm-delete-button"
           type="button"
-          onClick={handleDeleteItemSubmit}
+          onClick={handleDeleteItem}
         >
           {buttonText}
         </button>

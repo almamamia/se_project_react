@@ -85,8 +85,11 @@ function App() {
       });
   };
 
-  const handleDeleteSubmit = (selectedCard) => {
+  const handleDeleteItem = (selectedCard) => {
+    debugger;
     console.log(deleteClothingItem);
+    console.log(selectedCard);
+
     deleteClothingItem(selectedCard._id)
       .then(() => {
         const newItemList = clothingItems.filter((item) => {
@@ -147,7 +150,7 @@ function App() {
               onClose={handleCloseModal}
               selectedCard={selectedCard}
               buttonText={"Yes, delete item"}
-              onDeleteItem={handleDeleteSubmit}
+              onDeleteItem={handleDeleteItem}
             />
           )}
         </CurrentUserContext.Provider>
