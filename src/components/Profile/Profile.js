@@ -2,7 +2,7 @@ import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
-const Profile = (clothingItems, onSelectCard) => {
+const Profile = ({ clothingItems, onSelectCard }) => {
   return (
     <main className="profile">
       <SideBar></SideBar>

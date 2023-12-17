@@ -1,7 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-const ClothesSection = (clothingItems, onSelectCard) => {
+const ClothesSection = ({ clothingItems, onSelectCard }) => {
   console.log(clothingItems);
   return (
     <section className="clothes__section">
@@ -17,7 +17,7 @@ const ClothesSection = (clothingItems, onSelectCard) => {
       </div>
 
       <div className="clothes__section-cards">
-        {clothingItems.clothingItems.map((item) => {
+        {clothingItems.map((item) => {
           return (
             <ItemCard item={item} onSelectCard={onSelectCard} key={item._id} />
           );
