@@ -5,7 +5,7 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 const Profile = ({ clothingItems, onSelectCard }) => {
   return (
     <main className="profile">
-      <SideBar></SideBar>
+      <SideBar className="sideBar" />
       <ClothesSection
         clothingItems={clothingItems}
         onSelectCard={onSelectCard}

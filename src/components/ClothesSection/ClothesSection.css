@@ -10,10 +10,14 @@
 }
 
 .clothes__section-bar {
+  padding-bottom: 16.99px;
+  align-items: baseline;
+
   display: flex;
 }
 
 .clothes__section-text {
+  margin: 0;
   padding-right: 20px;
 }
 
@@ -22,4 +26,18 @@
   appearance: none;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.6);
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
+}
+
+.clothes__section-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 21px 19px;
 }

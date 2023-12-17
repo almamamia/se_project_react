@@ -1,6 +1,8 @@
 .sidebar {
   display: flex;
+  padding-right: 116px;
   align-items: center;
+  max-height: 56px;
 }
 
 .sidebar__avatar {

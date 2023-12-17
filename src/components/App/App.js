@@ -25,6 +25,7 @@ import {
 } from "../../utils/api";
 
 function App() {
+  // ===========modals================== \\
   const [activeModal, setActiveModal] = useState("");
   const createActiveModal = () => {
     setActiveModal("create");
@@ -43,6 +44,7 @@ function App() {
     setActiveModal("confirm");
   };
 
+  // =========== Temp ================== \\
   const [temp, setTemp] = useState(0);
   const [loc, setLocation] = useState(0);
   useEffect(() => {
@@ -62,6 +64,7 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
+  // =========== Clothing Items ================== \\
   const [clothingItems, setClothingItems] = useState([]);
 
   useEffect(() => {
@@ -104,7 +107,7 @@ function App() {
   };
 
   const [currentUser, setCurrentUser] = useState("");
-  console.log(clothingItems);
+
   return (
     <div>
       <CurrentTemperatureUnitContext.Provider

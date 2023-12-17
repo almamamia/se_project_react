@@ -8,7 +8,6 @@ const ConfirmationModal = ({
   buttonText,
 }) => {
   const handleDeleteItem = () => {
-    console.log(selectedCard._id);
     onDeleteItem(selectedCard);
   };
   return (

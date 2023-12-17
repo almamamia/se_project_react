@@ -7,6 +7,7 @@
   height: 328px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .card_name {
