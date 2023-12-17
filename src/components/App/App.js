@@ -65,13 +65,16 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   useEffect(() => {
-    getClothingItems()
-      .then((data) => {
-        setClothingItems(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchData = async () => {
+      getClothingItems()
+        .then((data) => {
+          setClothingItems(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    fetchData();
   }, []);
 
   const handleItemAddSubmit = ({ name, imageUrl, weather }) => {
@@ -86,16 +89,11 @@ function App() {
   };
 
   const handleDeleteItem = (selectedCard) => {
-    debugger;
-    console.log(deleteClothingItem);
-    console.log(selectedCard);
-
     deleteClothingItem(selectedCard._id)
       .then(() => {
         const newItemList = clothingItems.filter((item) => {
-          return item._ !== selectedCard;
+          return item._id !== selectedCard._id;
         });
-        console.log(newItemList);
 
         setClothingItems(newItemList);
         handleCloseModal();
@@ -106,7 +104,7 @@ function App() {
   };
 
   const [currentUser, setCurrentUser] = useState("");
-
+  console.log(clothingItems);
   return (
     <div>
       <CurrentTemperatureUnitContext.Provider

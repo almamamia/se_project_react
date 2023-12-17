@@ -7,7 +7,7 @@ export const checkServerResponse = (res) => {
   return Promise.reject(`Error: ${res.status}`);
 };
 
-export const getClothingItems = () => {
+export const getClothingItems = async () => {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
     headers: { "Content-type": "application/json" },
