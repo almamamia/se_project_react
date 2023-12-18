@@ -68,7 +68,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       getClothingItems()
         .then((data) => {
           setClothingItems(data);
@@ -125,6 +125,7 @@ function App() {
             </Route>
             <Route path="/profile">
               <Profile
+                onClick={createActiveModal}
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}
               />
