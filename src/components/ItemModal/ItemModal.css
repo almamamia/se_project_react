@@ -60,6 +60,7 @@
 .modal__close-button {
   border-style: none;
   background-color: transparent;
+  cursor: pointer;
 
   width: 20px;
   height: 20px;
@@ -84,4 +85,5 @@
   opacity: 1;
   background-color: #fff;
   padding-right: 32px;
+  cursor: pointer;
 }

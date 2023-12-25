@@ -3,12 +3,12 @@ import closeButton from "../../images/modal_close_button.svg";
 
 const ModalWithForm = ({
   children,
-  buttonText = "Add garment",
   title,
   onClose,
   name,
   isOpen,
   onSubmit,
+  buttonText,
 }) => {
   return (
     <div className={`modal modal_type_${name}`}>

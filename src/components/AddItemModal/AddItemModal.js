@@ -1,36 +1,29 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import useForm from "../../hooks/useForm";
 import { useEffect, useState } from "react";
 
-const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
-  const [name, setName] = useState("");
-  const handleNameChange = (e) => {
-    console.log(e.target.value);
-    setName(e.target.value);
-  };
-
-  const [imageUrl, setUrl] = useState("");
-  const handleUrlChange = (e) => {
-    console.log(e.target.value);
-    setUrl(e.target.value);
-  };
-
-  const [weather, setWeatherType] = useState("");
-  const handleWeatherTypeChange = (e) => {
-    setWeatherType(e.target.value);
-  };
+const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
+  const { values, handleChange: handleInputChange, setValues } = useForm({});
 
   useEffect(() => {
     if (!isOpen) {
-      setName("");
-      setUrl("");
-      setWeatherType("");
+      setValues({});
     }
   }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const capitalizeValues = {
+      ...values,
+      name: capitalizeFirstLetter(values.name),
+    };
     handleCloseModal();
-    onAddItem({ name, imageUrl, weather });
+    onAddItem(capitalizeValues);
+  };
+
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   return (
@@ -39,6 +32,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       isOpen={isOpen}
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
+      buttonText={buttonText}
     >
       <div className="modal__input">
         <label className="modal__label">
@@ -50,8 +44,8 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             minLength={1}
             maxLength={30}
             className="modal__input-text modal__input_card-name"
-            value={name}
-            onChange={handleNameChange}
+            value={values.name || ""}
+            onChange={handleInputChange}
           />
         </label>
 
@@ -59,14 +53,14 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           Image
           <input
             type="url"
-            name="link"
+            name="imageUrl"
             placeholder="Image URL"
             required
             minLength={1}
             maxLength={300}
             className="modal__input-text modal__input_card-url"
-            value={imageUrl}
-            onChange={handleUrlChange}
+            value={values.imageUrl}
+            onChange={handleInputChange}
           />
         </label>
 
@@ -78,11 +72,11 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             <label className="modal__input_form_value">
               <input
                 type="radio"
-                name="radAnswer"
+                name="weather"
                 id="hot"
                 value="hot"
                 className="modal__input_form_radio"
-                onChange={handleWeatherTypeChange}
+                onChange={handleInputChange}
               />
               Hot
             </label>
@@ -91,11 +85,11 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             <label className="modal__input_form_value">
               <input
                 type="radio"
-                name="radAnswer"
+                name="weather"
                 id="Warm"
                 value="Warm"
                 className="modal__input_form_radio"
-                onChange={handleWeatherTypeChange}
+                onChange={handleInputChange}
               />
               Warm
             </label>
@@ -104,11 +98,11 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             <label className="modal__input_form_value">
               <input
                 type="radio"
-                name="radAnswer"
+                name="weather"
                 id="Cold"
                 value="Cold"
                 className="modal__input_form_radio"
-                onChange={handleWeatherTypeChange}
+                onChange={handleInputChange}
               />
               Cold
             </label>
