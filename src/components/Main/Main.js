@@ -8,7 +8,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentTemp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
 
-  const weatherTypeF = useMemo(() => {
+  const weatherType = useMemo(() => {
     const tempF = weatherTemp?.temperature?.F;
     if (tempF >= 86) {
       return "hot";
@@ -19,23 +19,8 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
     }
   }, [weatherTemp]);
 
-  const weatherTypeC = useMemo(() => {
-    const tempC = weatherTemp?.temperature?.C;
-    if (tempC >= 25) {
-      return "hot";
-    } else if (tempC >= 9 && tempC <= 24) {
-      return "warm";
-    } else if (tempC <= 8) {
-      return "cold";
-    }
-  }, [weatherTemp]);
-
-  const filteredCardsF = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherTypeF;
-  });
-
-  const filteredCardsC = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherTypeC;
+  const filteredCards = clothingItems.filter((item) => {
+    return item.weather.toLowerCase() === weatherType;
   });
 
   return (
@@ -47,26 +32,15 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
           Today is {currentTemp}°{currentTemperatureUnit}. You may want to wear:
         </div>
         <div className="card_section">
-          {currentTemperatureUnit === "F"
-            ? filteredCardsF.map((item) => {
-                return (
-                  <ItemCard
-                    item={item}
-                    onSelectCard={onSelectCard}
-                    key={item._id}
-                  />
-                );
-              })
-            : currentTemperatureUnit === "C" &&
-              filteredCardsC.map((item) => {
-                return (
-                  <ItemCard
-                    item={item}
-                    onSelectCard={onSelectCard}
-                    key={item._id}
-                  />
-                );
-              })}
+          {filteredCards.map((item) => {
+            return (
+              <ItemCard
+                item={item}
+                onSelectCard={onSelectCard}
+                key={item._id}
+              />
+            );
+          })}
         </div>
       </section>
     </main>

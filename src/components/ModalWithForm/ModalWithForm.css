@@ -56,7 +56,8 @@
 }
 
 .modal__input_form_value {
-  padding-left: 8px;
+  display: flex;
+  column-gap: 8px;
   padding-bottom: 10px;
 }
 
@@ -80,6 +81,7 @@
   border: 1px;
   padding: 0;
   cursor: pointer;
+
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -89,4 +91,8 @@
 .modal__submit-button:disabled {
   background-color: rgba(0, 0, 0, 0.3);
   cursor: default;
+}
+
+.filled-button {
+  background-color: rgba(0, 163, 255, 1);
 }

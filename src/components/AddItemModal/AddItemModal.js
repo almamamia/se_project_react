@@ -3,13 +3,11 @@ import useForm from "../../hooks/useForm";
 import { useEffect, useState } from "react";
 
 const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
-  const { values, handleChange: handleInputChange, setValues } = useForm({});
-
-  useEffect(() => {
-    if (!isOpen) {
-      setValues({});
-    }
-  }, [isOpen]);
+  const { values, handleChange: handleInputChange } = useForm({
+    name: "",
+    imageUrl: "",
+    weather: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +24,20 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
+  const radioOptions = ["Hot", "Warm", "Cold"];
+
+  const [isFormFilled, setIsFormFilled] = useState(false);
+  useEffect(() => {
+    const filled =
+      values.name.trim() !== "" &&
+      values.imageUrl.trim() !== "" &&
+      values.weather.trim() !== "";
+
+    setIsFormFilled(filled);
+  }, [values]);
+
+  const buttonColor = isFormFilled ? "filled-button" : "empty-button";
+
   return (
     <ModalWithForm
       title="New garment"
@@ -33,6 +45,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
       buttonText={buttonText}
+      buttonColor={buttonColor}
     >
       <div className="modal__input">
         <label className="modal__label">
@@ -68,45 +81,22 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
           Select the weather type:
         </p>
         <div className="modal__form-children">
-          <div className="modal__form-option">
-            <label className="modal__input_form_value">
-              <input
-                type="radio"
-                name="weather"
-                id="hot"
-                value="hot"
-                className="modal__input_form_radio"
-                onChange={handleInputChange}
-              />
-              Hot
-            </label>
-          </div>
-          <div className="modal__form-option">
-            <label className="modal__input_form_value">
-              <input
-                type="radio"
-                name="weather"
-                id="Warm"
-                value="Warm"
-                className="modal__input_form_radio"
-                onChange={handleInputChange}
-              />
-              Warm
-            </label>
-          </div>
-          <div className="modal__form-option">
-            <label className="modal__input_form_value">
-              <input
-                type="radio"
-                name="weather"
-                id="Cold"
-                value="Cold"
-                className="modal__input_form_radio"
-                onChange={handleInputChange}
-              />
-              Cold
-            </label>
-          </div>
+          {radioOptions.map((option) => (
+            <div key={option} className="modal__form-option">
+              <label className="modal__input_form_value">
+                <input
+                  type="radio"
+                  name="weather"
+                  id={option.toLowerCase()}
+                  value={option}
+                  className="modal__input_form_radio"
+                  onChange={handleInputChange}
+                  checked={values.weather === option}
+                />
+                {option}
+              </label>
+            </div>
+          ))}
         </div>
       </div>
     </ModalWithForm>
